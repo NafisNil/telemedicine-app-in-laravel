@@ -11,10 +11,11 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="header__top__right">
-                        <a href="#"><i class="fa fa-facebook"></i></a>
-                        <a href="#"><i class="fa fa-twitter"></i></a>
-                        <a href="#"><i class="fa fa-instagram"></i></a>
-                        <a href="#"><i class="fa fa-dribbble"></i></a>
+                        <a href="{{@$social->facebook}}"><i class="fa fa-facebook"></i></a>
+                        <a href="{{@$social->twitter}}"><i class="fa fa-twitter"></i></a>
+                        <a href="{{@$social->instagram}}"><i class="fa fa-instagram"></i></a>
+                        <a href="{{@$social->youtube}}"><i class="fa fa-youtube"></i></a>
+                        <a href="{{@$social->linkedin}}"><i class="fa fa-linkedin"></i></a>
                     </div>
                 </div>
             </div>
@@ -31,7 +32,7 @@
                 <div class="header__menu__option">
                     <nav class="header__menu">
                         <ul>
-                            <li class="active"><a href="./index.html">Home</a></li>
+                            <li class="active"><a href="{{route('index')}}">Home</a></li>
                             <li><a href="./about.html">About</a></li>
                             <li><a href="./services.html">Services</a></li>
                             <li><a href="#">Pages</a>
@@ -41,7 +42,7 @@
                                     <li><a href="./blog-details.html">Blog Details</a></li>
                                 </ul>
                             </li>
-                            <li><a href="./blog.html">News</a></li>
+                            <li><a href="{{route('all_tips')}}">Healthcare Tips</a></li>
                             <li><a href="./contact.html">Contact</a></li>
                         </ul>
                     </nav>

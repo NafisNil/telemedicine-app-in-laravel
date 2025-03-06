@@ -1,6 +1,6 @@
 <div class="offcanvas-menu-wrapper">
     <div class="offcanvas__logo">
-        <a href="./index.html"><img src="{{(!empty($general->photo))?URL::to('storage/'.$general->photo):URL::to('image/no_image.png')}}" alt=""></a>
+        <a href="{{route('index')}}"><img src="{{(!empty($general->photo))?URL::to('storage/'.$general->photo):URL::to('image/no_image.png')}}" alt=""></a>
     </div>
     <div id="mobile-menu-wrap"></div>
     <div class="offcanvas__btn">
@@ -12,9 +12,10 @@
    
     </ul>
     <div class="offcanvas__social">
-        <a href="#"><i class="fa fa-facebook"></i></a>
-        <a href="#"><i class="fa fa-twitter"></i></a>
-        <a href="#"><i class="fa fa-instagram"></i></a>
-        <a href="#"><i class="fa fa-dribbble"></i></a>
+        <a href="{{@$social->facebook}}"><i class="fa fa-facebook"></i></a>
+        <a href="{{@$social->twitter}}"><i class="fa fa-twitter"></i></a>
+        <a href="{{@$social->instagram}}"><i class="fa fa-instagram"></i></a>
+        <a href="{{@$social->youtube}}"><i class="fa fa-youtube"></i></a>
+        <a href="{{@$social->linkedin}}"><i class="fa fa-linkedin"></i></a>
     </div>
 </div>

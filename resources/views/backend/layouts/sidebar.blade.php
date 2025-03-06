@@ -123,11 +123,25 @@
                 </a>
               </li>
 
+              <li class="nav-item">
+                <a href="{{route('tips.index')}}" class="nav-link {{$route == 'tips.index'?'active':''}}" >
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Tips</p>
+                </a>
+              </li>
+
               @elseif (Auth::user()->role == 'doctor')
               <li class="nav-item">
                 <a href="{{route('schedule.index')}}" class="nav-link {{$route == 'schedule.index'?'active':''}}" >
                   <i class="far fa-square nav-icon"></i>
                   <p>Schedule Fixation</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="{{route('tips.index')}}" class="nav-link {{$route == 'tips.index'?'active':''}}" >
+                  <i class="far fa-square nav-icon"></i>
+                  <p>Tips</p>
                 </a>
               </li>
               @endif

@@ -4,13 +4,13 @@
 @endsection
 @section('content')
      <!-- Hero Section Begin -->
-     <section class="hero spad set-bg" data-setbg="img/hero-bg.jpg">
+     <section class="hero spad set-bg" data-setbg="{{(!empty($slider->photo))?URL::to('storage/'.$slider->photo):URL::to('image/no_image.png')}}">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
                     <div class="hero__text">
-                        <span>Eiusmod tempor incididunt </span>
-                        <h2>Take the world's best quality Treadment</h2>
+                        <span style="color: #000">{{$slider->title}}</span>
+                        <h2 style="color:#12131e">{{strip_tags(@$slider->subtitle)}}</h2>
                         <a href="#" class="primary-btn normal-btn">Contact us</a>
                     </div>
                 </div>
@@ -53,17 +53,15 @@
                             <div class="col-lg-6 col-md-6">
                                 <div class="consultation__text__item">
                                     <div class="section-title">
-                                        <span>Welcon to Aesthetic</span>
-                                        <h2>Find Best Doctors With <b>AESTHETIC</b></h2>
+                                        <span>Welcon to Probashir Doctor</span>
+                                        <h2>{{@$about->title}}</h2>
                                     </div>
-                                    <p>30 Years of experience in Cosmetic Surgery.Lorem ipsum dolor sit amet,
-                                        consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                                    dolore magna aliqua.</p>
+                                    <p>{!!  $about->description !!}.</p>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6">
                                 <div class="consultation__video set-bg" data-setbg="img/consultation-video.jpg">
-                                    <a href="https://www.youtube.com/watch?v=PXsuI67s2AA" class="play-btn video-popup"><i class="fa fa-play"></i></a>
+                                    <a href="https://www.youtube.com/watch?v={{@$about->video_link}}" class="play-btn video-popup"><i class="fa fa-play"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -75,7 +73,7 @@
     <!-- Consultation Section End -->
 
     <!-- Chooseus Section Begin -->
-    <section class="chooseus spad">
+    {{-- <section class="chooseus spad">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -86,41 +84,24 @@
                 </div>
             </div>
             <div class="row">
+                @foreach ($specialization as $item)
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="chooseus__item">
-                        <img src="img/icons/ci-1.png" alt="">
-                        <h5>Advanced equipment</h5>
-                        <p>Lorem ipsum amet, consectetur adipiscing elit, sed do eiusmod tempor cididunt facilisis.</p>
+                      
+                        <h5>{{$item->title}}</h5>
+                        <p>{!!  $item->description!!}</p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="chooseus__item">
-                        <img src="img/icons/ci-2.png" alt="">
-                        <h5>Qualified doctors</h5>
-                        <p>Lorem ipsum amet, consectetur adipiscing elit, sed do eiusmod tempor cididunt facilisis.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="chooseus__item">
-                        <img src="img/icons/ci-3.png" alt="">
-                        <h5>Certified services</h5>
-                        <p>Lorem ipsum amet, consectetur adipiscing elit, sed do eiusmod tempor cididunt facilisis.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="chooseus__item">
-                        <img src="img/icons/ci-4.png" alt="">
-                        <h5>Emergency care</h5>
-                        <p>Lorem ipsum amet, consectetur adipiscing elit, sed do eiusmod tempor cididunt facilisis.</p>
-                    </div>
-                </div>
+                @endforeach
+             
+
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- Chooseus Section End -->
 
     <!-- Services Section Begin -->
-    <section class="services spad set-bg" data-setbg="img/services-bg.jpg">
+    <section class="services spad set-bg" data-setbg="{{asset('frontend')}}/img/services-bg.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-md-8 col-sm-6">
@@ -131,59 +112,27 @@
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-6">
                     <div class="services__btn">
-                        <a href="#" class="primary-btn">Contact us</a>
+                        <a href="#" class="primary-btn">All Service</a>
                     </div>
                 </div>
             </div>
             <div class="row">
+                @foreach ($specialization as $item)
                 <div class="col-lg-6 col-md-6">
                     <div class="services__item">
                         <div class="services__item__icon">
-                            <span class="flaticon-044-aesthetic"></span>
+                            <img src="{{(!empty($item->photo))?URL::to('storage/'.$item->photo):URL::to('image/no_image.png')}}" alt="" style="max-height: 50px">
                         </div>
                         <div class="services__item__text">
-                            <h5>Body procedures</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor aliqua.
+                            <h5>{{$item->title}}</h5>
+                            <p>{!! $item->description !!}
                             </p>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="services__item">
-                        <div class="services__item__icon">
-                            <span class="flaticon-027-beauty"></span>
-                        </div>
-                        <div class="services__item__text">
-                            <h5>Facial Procedures</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor aliqua.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="services__item">
-                        <div class="services__item__icon">
-                            <span class="flaticon-031-anatomy"></span>
-                        </div>
-                        <div class="services__item__text">
-                            <h5>Breast procedures</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor aliqua.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="services__item">
-                        <div class="services__item__icon">
-                            <span class="flaticon-008-abdominoplasty"></span>
-                        </div>
-                        <div class="services__item__text">
-                            <h5>Skin care & Beauty</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor aliqua.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+     
+                @endforeach
+
             </div>
         </div>
     </section>
@@ -201,77 +150,29 @@
                 </div>
             </div>
             <div class="row">
+                @foreach ($doctor as $item)
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="team__item">
-                        <img src="img/team/team-1.jpg" alt="">
-                        <h5>Caroline Grant</h5>
-                        <span>Plastic surgeon</span>
-                        <div class="team__item__social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-dribbble"></i></a>
-                        </div>
+                        <a href="">
+                        <img src="{{(!empty($item->photo))?URL::to('storage/'.$item->photo):URL::to('image/no_image.png')}}" alt="">
+                        @php
+                            $specialization = App\Models\Specialization::where('id',$item->specialization_id)->first();
+                        @endphp
+                        <h5>{{@$item->full_name}}</h5>
+                        <span>{{@$specialization->title}}</span>
+                    </a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="team__item">
-                        <img src="img/team/team-2.jpg" alt="">
-                        <h5>Dr. Maria Angel</h5>
-                        <span>Plastic surgeon</span>
-                        <div class="team__item__social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-dribbble"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="team__item">
-                        <img src="img/team/team-3.jpg" alt="">
-                        <h5>Nathan Mullins</h5>
-                        <span>Plastic surgeon</span>
-                        <div class="team__item__social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-dribbble"></i></a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+      
+
             </div>
         </div>
     </section>
     <!-- Team Section End -->
 
     <!-- Gallery Begin -->
-    <div class="gallery">
-        <div class="gallery__container">
-            <div class="grid-sizer"></div>
-            <div class="gc__item set-bg" data-setbg="img/gallery/gallery-1.jpg">
-                <a href="img/gallery/gallery-1.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
-            </div>
-            <div class="gc__item set-bg" data-setbg="img/gallery/gallery-2.jpg">
-                <a href="img/gallery/gallery-2.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
-            </div>
-            <div class="gc__item set-bg" data-setbg="img/gallery/gallery-3.jpg">
-                <a href="img/gallery/gallery-3.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
-            </div>
-            <div class="gc__item gc__item__large set-bg" data-setbg="img/gallery/gallery-4.jpg">
-                <a href="img/gallery/gallery-4.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
-            </div>
-            <div class="gc__item set-bg" data-setbg="img/gallery/gallery-5.jpg">
-                <a href="img/gallery/gallery-5.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
-            </div>
-            <div class="gc__item set-bg" data-setbg="img/gallery/gallery-6.jpg">
-                <a href="img/gallery/gallery-6.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
-            </div>
-            <div class="gc__item set-bg" data-setbg="img/gallery/gallery-7.jpg">
-                <a href="img/gallery/gallery-7.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
-            </div>
-        </div>
-    </div>
+
     <!-- Gallery End -->
 
     <!-- Latest News Begin -->
@@ -281,46 +182,39 @@
                 <div class="col-lg-8 col-md-8 col-sm-6">
                     <div class="section-title">
                         <span>Our News</span>
-                        <h2>Skin care tips</h2>
+                        <h2>Health care tips</h2>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-6">
                     <div class="latest__btn">
-                        <a href="#" class="primary-btn">View all news</a>
+                        <a href="#" class="primary-btn">View all tips</a>
                     </div>
                 </div>
             </div>
             <div class="row">
+                @foreach ($tips as $item)
+                @php
+                    $user = App\Models\Tip::username($item->user_id);
+                @endphp
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="latest__item">
-                        <h5><a href="#">Here’s how you can get a natural glow this party season</a></h5>
-                        <p>Lorem ipsum, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                        <h5><a href="{{route('details_tips', $item->slug)}}">{{$item->problem}}</a></h5>
+                        <p>{!! Str::substr($item->symptoms, 0, 100) !!}...</p>
                         <ul>
-                            <li><img src="img/blog/blog-author.jpg" alt=""> John Doe</li>
-                            <li>Dec 06, 2019</li>
+                            <li><img src="{{(!empty($user->photo))?URL::to('storage/'.$user->photo):URL::to('image/no_image.png')}}" alt="">
+                                @if ($user->full_name != null)
+                                {{$user->full_name}}
+                                @else
+                                {{$user->name}}
+                                @endif
+                              </li>
+                            <li>{{$item->created_at->format('d M, Y')}}</li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="latest__item">
-                        <h5><a href="#">Get better skin with these top 10 tips for skin care</a></h5>
-                        <p>Lorem ipsum, consectetur adipiscing elit, sed do eiusmod tempor.</p>
-                        <ul>
-                            <li><img src="img/blog/blog-author.jpg" alt=""> John Doe</li>
-                            <li>Dec 06, 2019</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="latest__item">
-                        <h5><a href="#">8 Ways to Save Your Skin if You Exercise Outside This Winter</a></h5>
-                        <p>Lorem ipsum, consectetur adipiscing elit, sed do eiusmod tempor.</p>
-                        <ul>
-                            <li><img src="img/blog/blog-author.jpg" alt=""> John Doe</li>
-                            <li>Dec 06, 2019</li>
-                        </ul>
-                    </div>
-                </div>
+                @endforeach
+
+  
             </div>
         </div>
     </section>

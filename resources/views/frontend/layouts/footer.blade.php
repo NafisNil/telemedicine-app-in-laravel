@@ -17,10 +17,11 @@
                 </div>
                 <div class="col-lg-4 col-md-12">
                     <div class="footer__social">
-                        <a href="#"><i class="fa fa-facebook"></i></a>
-                        <a href="#"><i class="fa fa-twitter"></i></a>
-                        <a href="#"><i class="fa fa-instagram"></i></a>
-                        <a href="#"><i class="fa fa-dribbble"></i></a>
+                        <a href="{{@$social->facebook}}"><i class="fa fa-facebook"></i></a>
+                        <a href="{{@$social->twitter}}"><i class="fa fa-twitter"></i></a>
+                        <a href="{{@$social->instagram}}"><i class="fa fa-instagram"></i></a>
+                        <a href="{{@$social->youtube}}"><i class="fa fa-youtube"></i></a>
+                        <a href="{{@$social->linkedin}}"><i class="fa fa-linkedin"></i></a>
                     </div>
                 </div>
             </div>
@@ -35,7 +36,7 @@
                         <li><a href="#">About Us</a></li>
                         <li><a href="#">Departments</a></li>
                         <li><a href="#">Find a Doctor</a></li>
-                        <li><a href="#">FAQ</a></li>
+                        <li><a href="{{route('index')}}">Tips</a></li>
                         <li><a href="#">News</a></li>
                     </ul>
                 </div>
@@ -77,7 +78,7 @@
                 <div class="col-lg-7">
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     <div class="footer__copyright__text">
-                        <p>Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
+                        <p>Copyright &copy; Probashir Doctor. All rights reserved </p>
                     </div>
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                 </div>
