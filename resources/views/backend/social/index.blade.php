@@ -29,7 +29,7 @@
               <div class="card-header">
                 <h3 class="card-title">Social Media Us</h3>
 
-                @if ($socialCount < 4)
+                @if ($socialCount < 1)
                 <a href="{{route('social.create')}}" class="float-right btn btn-outline-dark btn-sm mb-2"><i class="fas fa-plus-square"></i></a>
 
                 @endif
@@ -44,9 +44,12 @@
                   <thead>
                   <tr>
                     <th>#</th>
-                    <th>Name</th>
-                    <th>URL</th>
-                   <td>Photo</td>
+                    <th>Facebook</th>
+                    <th>Instagram</th>
+                    <th>Youtube</th>
+                    <th>Linkedin</th>
+                    <th>Twitter</th>
+               
                 
                     <th>Action</th>
 
@@ -66,11 +69,12 @@
                   
                     <tr>
                       <td>1</td>
-                      <td>  {!! $item->name !!} </td>
-                      <td> <a href="{!! $item->url !!} ">{!! $item->url !!} </a> </td>
-                      <td> <img src="{{(!empty($item->photo))?URL::to('storage/'.$item->photo):URL::to('image/no_image.png')}}" alt="" style="max-height:50px"></td>
-                
-                   
+                      <td>  {!! $item->facebook !!} </td>
+                      <td>  {!! $item->instagram !!} </td>
+                      <td>  {!! $item->youtube !!} </td>
+                      <td>  {!! $item->linkedin !!} </td>
+                      <td>  {!! $item->twitter !!} </td>
+                     
                      <td>
   
   
@@ -98,9 +102,11 @@
                   <tr>
                     <th>#</th>
                 
-                    <th>Name</th>
-                    <th>URL</th>
-                    <td>Photo</td>
+                    <th>Facebook</th>
+                    <th>Instagram</th>
+                    <th>Youtube</th>
+                    <th>Linkedin</th>
+                    <th>Twitter</th>
                     <th>Action</th>
 
                   </tr>

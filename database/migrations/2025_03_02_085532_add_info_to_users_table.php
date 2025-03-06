@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('role')->default('admin')->comment('admin, doctor, patient');
             $table->text('address')->nullable( );
             $table->string('dob')->nullable( );
-            $table->string('specialization')->nullable( );
+            $table->string('specialization_id')->nullable( );
             $table->text('experience')->nullable( );
             $table->text('bio')->nullable( );
             $table->string('photo')->nullable( );

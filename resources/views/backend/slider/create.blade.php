@@ -1,6 +1,6 @@
 @extends('backend.layouts.master')
 @section('title')
-    Tech-IT Slider - Create
+    Probashir Doctor Slider - Create
 @endsection
 @section('content')
 

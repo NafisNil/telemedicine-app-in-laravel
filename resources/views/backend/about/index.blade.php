@@ -44,14 +44,10 @@
                   <thead>
                   <tr>
                     <th>#</th>
-                    <th>Image</th>
+                    <th>Title</th>
                     <th>Description</th>
-                    <th>Mission</th>
-                    <th>Vision</th>
-                    <th>Number of Clients</th>
-                    <th>Number of Employees</th>
-                    <th>Number of Projects</th>
-                    <th>Number of Courses</th>
+                    <th>Video Link</th>
+           
                     <th>Action</th>
 
                   </tr>
@@ -68,14 +64,17 @@
                     @if ($aboutCount > 0)
                     <tr>
                       <td>1</td>
-                      <td><img src="{{(!empty($about->photo))?URL::to('storage/'.$about->photo):URL::to('image/no_image.png')}}" alt="" style="max-height: 150px"></td>
-                      <td>  {!! $about->description !!} </td>
-                      <td>  {!! $about->mission !!} </td>
-                      <td>  {!! $about->vision !!} </td>
-                      <td>  {!! $about->project !!} </td>
-                      <td>  {!! $about->employee !!} </td>
-                      <td>  {!! $about->project !!} </td>
-                      <td>  {!! $about->course !!} </td>
+                      <td>  {!! $about->title !!} </td>
+                      <td>  {!! $about->description !!}   </td>
+                      <td>
+                        @php
+                            $video_id =@$about->video_link; // Replace with your actual video ID
+                            $embed_url = 'https://www.youtube.com/embed/' . $video_id;
+                        @endphp
+
+<iframe width="360" height="215" src="{{ $embed_url }}" frameborder="0" allowfullscreen></iframe>
+                      </td>
+                  
                    
                      <td>
   
@@ -103,14 +102,10 @@
                   <tfoot>
                   <tr>
                     <th>#</th>
-                    <th>Image</th>
+                    <th>Title</th>
                     <th>Description</th>
-                    <th>Mission</th>
-                    <th>Vision</th>
-                    <th>Number of Clients</th>
-                    <th>Number of Employees</th>
-                    <th>Number of Projects</th>
-                    <th>Number of Courses</th>
+                    <th>Video Link</th>
+           
                     <th>Action</th>
 
                   </tr>

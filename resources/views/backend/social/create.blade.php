@@ -1,6 +1,6 @@
 @extends('backend.layouts.master')
 @section('title')
-    Tech-IT Social - Create
+    Probashir Doctor Social - Create
 @endsection
 @section('content')
 

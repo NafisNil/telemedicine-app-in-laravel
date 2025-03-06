@@ -1,8 +1,8 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="../../index3.html" class="brand-link">
-      <img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+    <a href="{{route('index')}}" class="brand-link">
+      <img src="" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light">Probashir Doctor</span>
     </a>
 
     <!-- Sidebar -->
@@ -10,7 +10,7 @@
       <!-- Sidebar user (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="{{ asset('backend') }}/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="{{(!empty(Auth::user()->photo))?URL::to('storage/'.Auth::user()->photo):URL::to('image/no_image.png')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="#" class="d-block">{{ Auth::user()->name }}</a>
@@ -69,13 +69,71 @@
                 @endphp
               </p>
             </a>
+
+            
             <ul class="nav nav-treeview">
+              @if (Auth::user()->role == 'admin')
               <li class="nav-item">
-                <a href="" class="nav-link {{$route == 'slider.index'?'active':''}}" >
+                <a href="{{route('specialization.index')}}" class="nav-link {{$route == 'specialization.index'?'active':''}}" >
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Specialization</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="{{route('doctor.index')}}" class="nav-link {{$route == 'doctor.index'?'active':''}}" >
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Doctor Registration</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="{{route('payment_method.index')}}" class="nav-link {{$route == 'payment_method.index'?'active':''}}" >
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Payment Method</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="{{route('general.index')}}" class="nav-link {{$route == 'general.index'?'active':''}}" >
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>General Info</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="{{route('social.index')}}" class="nav-link {{$route == 'social.index'?'active':''}}" >
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Social Media Info</p>
+                </a>
+              </li>
+
+
+              <li class="nav-item">
+                <a href="{{route('slider.index')}}" class="nav-link {{$route == 'slider.index'?'active':''}}" >
                   <i class="far fa-circle nav-icon"></i>
                   <p>Slider</p>
                 </a>
               </li>
+
+              <li class="nav-item">
+                <a href="{{route('about.index')}}" class="nav-link {{$route == 'about.index'?'active':''}}" >
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>About</p>
+                </a>
+              </li>
+
+              @elseif (Auth::user()->role == 'doctor')
+              <li class="nav-item">
+                <a href="{{route('schedule.index')}}" class="nav-link {{$route == 'schedule.index'?'active':''}}" >
+                  <i class="far fa-square nav-icon"></i>
+                  <p>Schedule Fixation</p>
+                </a>
+              </li>
+              @endif
+
+
+             
 
 
 

@@ -1,6 +1,6 @@
 @extends('backend.layouts.master')
 @section('title')
-    Index - Tech IT
+    Index - Probashir Doctor
 @endsection
 @section('content')
         <!-- Content Header (Page header) -->
