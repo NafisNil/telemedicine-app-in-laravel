@@ -130,6 +130,17 @@
                 </a>
               </li>
 
+              <li class="nav-item">
+                <a href="{{route('all_appointment')}}" class="nav-link {{$route == 'all_appointment.index'?'active':''}}" >
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>All Appointment</p>
+                </a>
+              </li>
+
+
+
+              
+
               @elseif (Auth::user()->role == 'doctor')
               <li class="nav-item">
                 <a href="{{route('schedule.index')}}" class="nav-link {{$route == 'schedule.index'?'active':''}}" >
@@ -144,12 +155,41 @@
                   <p>Tips</p>
                 </a>
               </li>
+
+              <li class="nav-item">
+                <a href="{{route('doctor_appointment')}}" class="nav-link {{$route == 'doctor_appointment'?'active':''}}" >
+                  <i class="far fa-square nav-icon"></i>
+                  <p>My Appointment</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="{{route('record.doctor')}}" class="nav-link {{$route == 'record.doctor'?'active':''}}" >
+                  <i class="far fa-square nav-icon"></i>
+                  <p>Patient record</p>
+                </a>
+              </li>
+              @else
+              <li class="nav-item">
+                <a href="{{route('patient_appointment')}}" class="nav-link {{$route == 'patient_appointment'?'active':''}}" >
+                  <i class="far fa-square nav-icon"></i>
+                  <p>My Appointment</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('record.patient')}}" class="nav-link {{$route == 'record.patient'?'active':''}}" >
+                  <i class="far fa-square nav-icon"></i>
+                  <p>My Treatment</p>
+                </a>
+              </li>
+
+              
               @endif
 
 
              
 
-
+           
 
       
               {{-- <li class="nav-item">

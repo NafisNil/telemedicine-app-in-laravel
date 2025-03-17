@@ -31,4 +31,16 @@ class Doctor extends Model
     {
         return $this->belongsTo(Specialization::class, 'specialization_id','id');
     }
+
+    // Relationship with Appointment model
+    public function appointments()
+    {
+        return $this->hasMany(Appointment::class);
+    }
+
+    // Relationship with Schedule model
+    public function schedules()
+    {
+        return $this->hasMany(Schedule::class);
+    }
 }

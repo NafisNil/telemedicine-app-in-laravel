@@ -11,7 +11,7 @@
                     <div class="hero__text">
                         <span style="color: #000">{{$slider->title}}</span>
                         <h2 style="color:#12131e">{{strip_tags(@$slider->subtitle)}}</h2>
-                        <a href="#" class="primary-btn normal-btn">Contact us</a>
+                        <a href="{{route('index')}}#footer" class="primary-btn normal-btn">Contact us</a>
                     </div>
                 </div>
             </div>
@@ -23,7 +23,7 @@
     <section class="consultation">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4">
+                {{-- <div class="col-lg-4">
                     <div class="consultation__form">
                         <div class="section-title">
                             <span>REQUEST FOR YOUR</span>
@@ -46,14 +46,14 @@
                             <button type="submit" class="site-btn">Book appoitment</button>
                         </form>
                     </div>
-                </div>
-                <div class="col-lg-8">
+                </div> --}}
+                <div class="col-lg-12">
                     <div class="consultation__text">
                         <div class="row">
                             <div class="col-lg-6 col-md-6">
                                 <div class="consultation__text__item">
                                     <div class="section-title">
-                                        <span>Welcon to Probashir Doctor</span>
+                                        <span>Welcome to <b>Probashir Doctor</b> </span>
                                         <h2>{{@$about->title}}</h2>
                                     </div>
                                     <p>{!!  $about->description !!}.</p>
@@ -112,7 +112,7 @@
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-6">
                     <div class="services__btn">
-                        <a href="#" class="primary-btn">All Service</a>
+                        <a href="{{route('all_service')}}" class="primary-btn">All Department</a>
                     </div>
                 </div>
             </div>
@@ -120,6 +120,7 @@
                 @foreach ($specialization as $item)
                 <div class="col-lg-6 col-md-6">
                     <div class="services__item">
+                        <a href="{{route('details_service', [$item->id, $item->slug])}}">
                         <div class="services__item__icon">
                             <img src="{{(!empty($item->photo))?URL::to('storage/'.$item->photo):URL::to('image/no_image.png')}}" alt="" style="max-height: 50px">
                         </div>
@@ -128,6 +129,7 @@
                             <p>{!! $item->description !!}
                             </p>
                         </div>
+                    </a>
                     </div>
                 </div>
      
@@ -187,7 +189,7 @@
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-6">
                     <div class="latest__btn">
-                        <a href="#" class="primary-btn">View all tips</a>
+                        <a href="{{route('all_tips')}}" class="primary-btn">View all tips</a>
                     </div>
                 </div>
             </div>

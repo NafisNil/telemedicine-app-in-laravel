@@ -22,7 +22,6 @@
   <!-- Navbar -->
     @include('backend.layouts.navbar')
   <!-- /.navbar -->
-
   <!-- Main Sidebar Container -->
   @include('backend.layouts.sidebar')
 

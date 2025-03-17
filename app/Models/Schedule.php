@@ -14,4 +14,16 @@ class Schedule extends Model
         'end',
         'status'
     ];
+
+    // Relationship with Appointment model
+    public function appointments()
+    {
+        return $this->hasMany(Appointment::class);
+    }
+
+    // Relationship with Doctor model
+    public function doctor()
+    {
+        return $this->belongsTo(Doctor::class);
+    }
 }

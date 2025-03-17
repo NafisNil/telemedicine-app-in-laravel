@@ -1,6 +1,6 @@
 @extends('frontend.layouts.master')
 @section('title')
-    Probashir Doctor - Index
+    Probashir Doctor - {{@$tips_single->problem}}
 @endsection
 @section('content')
         <!-- Blog Details Section Begin -->

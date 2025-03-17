@@ -23,6 +23,9 @@
     <link rel="stylesheet" href="{{asset('frontend')}}/css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="{{asset('frontend')}}/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="{{asset('frontend')}}/css/style.css" type="text/css">
+
+    <!-- SweetAlert CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 </head>
 
 <body>
@@ -55,6 +58,23 @@
     <script src="{{asset('frontend')}}/js/jquery.slicknav.js"></script>
     <script src="{{asset('frontend')}}/js/owl.carousel.min.js"></script>
     <script src="{{asset('frontend')}}/js/main.js"></script>
+
+    <!-- SweetAlert JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        @if(session('success'))
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: '{{ session('success') }}',
+                showConfirmButton: false,
+                timer: 2000,
+                width: '300px', // Adjust the width to make the alert smaller
+                height:'150px',
+                padding: '1rem' // Adjust the padding to make the alert smaller
+            });
+        @endif
+    </script>
 </body>
 
 </html>

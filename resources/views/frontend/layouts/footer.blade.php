@@ -1,4 +1,4 @@
-<footer class="footer">
+<footer class="footer" id="footer">
     <div class="footer__top">
         <div class="container">
             <div class="row">
@@ -34,8 +34,8 @@
                     <h5>Company</h5>
                     <ul>
                         <li><a href="#">About Us</a></li>
-                        <li><a href="#">Departments</a></li>
-                        <li><a href="#">Find a Doctor</a></li>
+                        <li><a href="{{route('all_service')}}">Departments</a></li>
+                        <li><a href="{{route('all_doctor')}}">Find a Doctor</a></li>
                         <li><a href="{{route('index')}}">Tips</a></li>
                         <li><a href="#">News</a></li>
                     </ul>

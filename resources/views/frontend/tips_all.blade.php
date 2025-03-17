@@ -1,6 +1,6 @@
 @extends('frontend.layouts.master')
 @section('title')
-    Probashir Doctor - Index
+    Probashir Doctor - Healthcare Tips
 @endsection
 @section('content')
 
